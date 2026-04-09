@@ -57,25 +57,10 @@
 <style>
 :root{--saffron:#E8621A;--deep:#B84A08;--gold:#C8860A;--gold-light:#E8B84C;--gold-pale:#FFF0C0;--crimson:#7A1515;--cream:#FDF6E3;--warm:#FFFDF5;--dark:#1E0A02;--brown:#3B1A0A;--text:#2C1005;--text-light:#6B3A1F;}
 *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
-body{
-  font-family:'Noto Serif','Noto Serif Devanagari',serif;
-  font-size:18px;
-  line-height:1.9;
-  color:#2A0820;
-}
-.en{
-  font-family:'Noto Serif',serif;
-  font-weight:500;
-}
-.hi{
-  font-family:'Noto Serif Devanagari',serif;
-  font-size:1.12em;  
-  line-height:2;      
-}
-h1,h2,h3{
-  font-weight:600;
-  letter-spacing:0.5px;
-}
+body{font-family:'Noto Serif','Noto Serif Devanagari',serif;font-size:18px;line-height:1.9;color:#2A0820;}
+.en{font-family:'Noto Serif',serif;font-weight:500;}
+.hi{font-family:'Noto Serif Devanagari',serif;font-size:1.12em;line-height:2;  }
+h1,h2,h3{font-weight:600;letter-spacing:0.5px;}
 .time,
 .event-date,
 .upi-id,
@@ -91,9 +76,15 @@ nav{background:var(--dark);display:flex;align-items:center;justify-content:space
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.5rem;}
 .hamburger span{width:22px;height:2px;background:var(--gold-light);display:block;}
 @media(max-width:768px){.nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--dark);border-top:1px solid var(--gold);padding:.5rem 0;}.nav-links.open{display:flex;}.nav-links a{padding:.75rem 1.5rem;}.hamburger{display:flex;}}
-.hero{min-height:100vh;background:linear-gradient(175deg,#0D0400 0%,#1E0A02 35%,#120800 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden;}
-.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(232,98,26,.08) 1px,transparent 1px);background-size:36px 36px;}
-.hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,120,30,.15) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);}
+.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)),url("images/bhagwan.jpeg");
+background-size: cover;background-position: center;background-repeat: no-repeat; display:flex; flex-direction:column;align-items:center;
+justify-content:center;text-align:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden;}
+.hero::after{content:"";position:absolute;inset:0;
+background: radial-gradient(circle at center,rgba(255,215,120,0.12),rgba(255,215,120,0.05) 40%,transparent 70%);pointer-events:none;}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(232,98,26,.08) 1px,transparent 1px);
+background-size:36px 36px;opacity:0.15;}
+.hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,120,30,.15) 0%,transparent 70%);
+top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.25;}
 .hero .hi{font-size:1.15em;}
 .petal{position:absolute;border-radius:50% 0 50% 0;opacity:0;animation:rise linear infinite;}
 @keyframes rise{0%{transform:translateY(105vh) rotate(0deg);opacity:0}10%{opacity:.5}90%{opacity:.4}100%{transform:translateY(-10vh) rotate(540deg);opacity:0}}
@@ -109,6 +100,8 @@ nav{background:var(--dark);display:flex;align-items:center;justify-content:space
 .hero-sanskrit{color:var(--gold-pale);font-style:italic;font-size:1.1rem;letter-spacing:3px;margin-bottom:1.2rem;opacity:.85;}
 .hero h1{font-family:'Yatra One',sans-serif;font-size:clamp(2.4rem,6vw,4.8rem);color:var(--gold-light);line-height:1.1;letter-spacing:2px;text-shadow:0 2px 30px rgba(200,150,12,.4);margin-bottom:.4rem;animation:fadeUp .9s ease both;}
 .hero h1 em{display:block;font-style:normal;font-size:.55em;color:var(--gold-pale);letter-spacing:4px;margin-top:.3rem;}
+@keyframes slowZoom {from { transform: scale(1); } to { transform: scale(1.05); }}
+.hero{animation: slowZoom 20s ease-in-out infinite alternate;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 .hero-location{color:#ffffff;font-size:1rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:2.5rem;animation:fadeUp .9s .2s ease both;}
 .hero-divider{width:180px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 2.5rem;}
